@@ -252,23 +252,23 @@ export default function Home() {
       <div className="container mx-auto px-4 py-6">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="flex flex-col md:flex-row w-full mb-6 gap-2">
-            <TabsTrigger value="dashboard" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-slate-100 py-3 px-4">
-              <span className="data-[state=active]:text-blue-600"><LayoutDashboard className="w-4 h-4" /></span>
+            <TabsTrigger value="dashboard" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 py-3 px-4">
+              <span className="data-[state=active]:text-blue-600"><LayoutDashboard className="w-4 h-4 active:bg-amber-600" /></span>
               <span className="data-[state=active]:text-blue-600">Dashboard</span>
             </TabsTrigger>
-            <TabsTrigger value="staff" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-slate-100 py-3 px-4">
+            <TabsTrigger value="staff" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 py-3 px-4">
               <span className="data-[state=active]:text-blue-600"><Users className="w-4 h-4" /></span>
               <span className="data-[state=active]:text-blue-600">Staff</span>
             </TabsTrigger>
-            <TabsTrigger value="payments" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-slate-100 py-3 px-4">
+            <TabsTrigger value="payments" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 py-3 px-4">
               <span className="data-[state=active]:text-blue-600"><DollarSign className="w-4 h-4" /></span>
               <span className="data-[state=active]:text-blue-600">Payments</span>
             </TabsTrigger>
-            <TabsTrigger value="tasks" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-slate-100 py-3 px-4">
+            <TabsTrigger value="tasks" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 py-3 px-4">
               <span className="data-[state=active]:text-blue-600"><ClipboardList className="w-4 h-4" /></span>
               <span className="data-[state=active]:text-blue-600">Tasks</span>
             </TabsTrigger>
-            <TabsTrigger value="vetting" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-slate-100 py-3 px-4">
+            <TabsTrigger value="vetting" className="flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-200 py-3 px-4">
               <span className="data-[state=active]:text-blue-600"><Shield className="w-4 h-4" /></span>
               <span className="data-[state=active]:text-blue-600">Vetting</span>
             </TabsTrigger>
