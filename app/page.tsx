@@ -348,7 +348,7 @@ export default function Home() {
               </span>
               <span className="data-[state=active]:text-blue-600">Tasks</span>
             </TabsTrigger>
-            <TabsTrigger
+            {/* <TabsTrigger
               value="vetting"
               className="flex cursor-pointer items-center justify-center gap-2 px-4 py-3 hover:bg-gray-200"
             >
@@ -356,7 +356,7 @@ export default function Home() {
                 <Shield className="h-4 w-4" />
               </span>
               <span className="data-[state=active]:text-blue-600">Vetting</span>
-            </TabsTrigger>
+            </TabsTrigger> */}
           </TabsList>
 
           {/* Dashboard Tab */}
