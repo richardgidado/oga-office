@@ -76,3 +76,8 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
 }
+
+/* Attractive header background for a more beautiful UI */
+.header-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
+}
