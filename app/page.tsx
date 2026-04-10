@@ -6,23 +6,8 @@ import {
   Users,
   DollarSign,
   ClipboardList,
-  Shield,
-  FileText,
-  ChevronRight,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { formatDate } from "@/lib/utils";
-
 import { Header } from "@/components/header";
 import { DashboardStats } from "@/components/dashboard-stats";
 import { RecentTasks } from "@/components/recent-tasks";
@@ -320,11 +305,9 @@ export default function Home() {
               <StaffOnSuspension staffMembers={staffMembers} />
             </div>
           </TabsContent>
-
           <TabsContent value="staff">
             <StaffTab staffMembers={staffMembers} />
           </TabsContent>
-
           <TabsContent value="payments">
             <PaymentsTab payments={payments} staffMembers={staffMembers} />
           </TabsContent>
