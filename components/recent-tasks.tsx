@@ -14,6 +14,9 @@ interface Task {
   assignedTo: string;
   dueDate: string;
   status: string;
+  assignedAt?: string;
+  startedAt?: string;
+  completedAt?: string;
 }
 
 interface RecentTasksProps {

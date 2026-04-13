@@ -123,6 +123,7 @@ const tasks = [
     assignedTo: "Emeka Okonkwo",
     dueDate: "2024-01-25",
     status: "pending",
+    assignedAt: "2024-01-20T09:00:00Z",
   },
   {
     id: 2,
@@ -130,6 +131,9 @@ const tasks = [
     assignedTo: "Amaka Johnson",
     dueDate: "2024-01-24",
     status: "completed",
+    assignedAt: "2024-01-18T10:00:00Z",
+    startedAt: "2024-01-20T08:30:00Z",
+    completedAt: "2024-01-20T14:45:00Z",
   },
   {
     id: 3,
@@ -137,6 +141,8 @@ const tasks = [
     assignedTo: "Fatima Bello",
     dueDate: "2024-01-26",
     status: "in_progress",
+    assignedAt: "2024-01-19T09:00:00Z",
+    startedAt: "2024-01-20T07:00:00Z",
   },
   {
     id: 4,
@@ -144,6 +150,7 @@ const tasks = [
     assignedTo: "Chidi Okafor",
     dueDate: "2024-01-28",
     status: "pending",
+    assignedAt: "2024-01-21T11:00:00Z",
   },
   {
     id: 5,
@@ -151,6 +158,9 @@ const tasks = [
     assignedTo: "Grace Nwankwo",
     dueDate: "2024-01-23",
     status: "completed",
+    assignedAt: "2024-01-17T08:00:00Z",
+    startedAt: "2024-01-23T14:00:00Z",
+    completedAt: "2024-01-23T15:30:00Z",
   },
   {
     id: 6,
@@ -158,6 +168,7 @@ const tasks = [
     assignedTo: "Peter Okoro",
     dueDate: "2024-01-27",
     status: "pending",
+    assignedAt: "2024-01-22T10:00:00Z",
   },
   {
     id: 7,
@@ -165,6 +176,7 @@ const tasks = [
     assignedTo: "Emeka Okonkwo",
     dueDate: "2024-01-29",
     status: "pending",
+    assignedAt: "2024-01-22T14:00:00Z",
   },
   {
     id: 8,
@@ -172,6 +184,8 @@ const tasks = [
     assignedTo: "Peter Okoro",
     dueDate: "2024-01-30",
     status: "in_progress",
+    assignedAt: "2024-01-20T09:00:00Z",
+    startedAt: "2024-01-21T08:00:00Z",
   },
 ];
 

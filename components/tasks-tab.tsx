@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Clock, ClipboardList, Plus, Search } from "lucide-react";
+import {
+  CheckCircle2,
+  Clock,
+  ClipboardList,
+  Plus,
+  Search,
+  Play,
+  Circle,
+} from "lucide-react";
 import {
   Card,
   CardContent,
@@ -31,6 +39,9 @@ interface Task {
   assignedTo: string;
   dueDate: string;
   status: string;
+  assignedAt?: string;
+  startedAt?: string;
+  completedAt?: string;
 }
 
 interface Staff {
@@ -58,11 +69,58 @@ function getTaskStatusBadge(status: string) {
   }
 }
 
-export function TasksTab({ tasks, staffMembers }: TasksTabProps) {
+function formatTimeAgo(timestamp: string | undefined): string {
+  if (!timestamp) return "";
+
+  const now = new Date();
+  const date = new Date(timestamp);
+  const diffMs = now.getTime() - date.getTime();
+  const diffMins = Math.floor(diffMs / 60000);
+
+  if (diffMins < 1) return "just now";
+  if (diffMins < 60) return `${diffMins} min${diffMins > 1 ? "s" : ""} ago`;
+
+  const diffHours = Math.floor(diffMins / 60);
+  if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? "s" : ""} ago`;
+
+  const diffDays = Math.floor(diffHours / 24);
+  return `${diffDays} day${diffDays > 1 ? "s" : ""} ago`;
+}
+
+export function TasksTab({ tasks: initialTasks, staffMembers }: TasksTabProps) {
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedStaff, setSelectedStaff] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
+
+  const handleStartTask = (taskId: number) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId
+          ? {
+              ...task,
+              status: "in_progress",
+              startedAt: new Date().toISOString(),
+            }
+          : task,
+      ),
+    );
+  };
+
+  const handleCompleteTask = (taskId: number) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId
+          ? {
+              ...task,
+              status: "completed",
+              completedAt: new Date().toISOString(),
+            }
+          : task,
+      ),
+    );
+  };
 
   const activeStaff = staffMembers.filter((s) => s.status === "active");
 
@@ -206,10 +264,40 @@ export function TasksTab({ tasks, staffMembers }: TasksTabProps) {
                     <p className="text-xs text-slate-400">
                       Due: {formatDate(task.dueDate)}
                     </p>
+                    {task.startedAt && (
+                      <p className="text-xs text-blue-500">
+                        Started {formatTimeAgo(task.startedAt)}
+                      </p>
+                    )}
+                    {task.completedAt && (
+                      <p className="text-xs text-green-600">
+                        Completed {formatTimeAgo(task.completedAt)}
+                      </p>
+                    )}
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
                   {getTaskStatusBadge(task.status)}
+                  {task.status === "pending" && (
+                    <Button
+                      size="sm"
+                      onClick={() => handleStartTask(task.id)}
+                      className="cursor-pointer bg-blue-600 hover:bg-blue-700"
+                    >
+                      <Play className="mr-1 h-3 w-3" />
+                      Start
+                    </Button>
+                  )}
+                  {task.status === "in_progress" && (
+                    <Button
+                      size="sm"
+                      onClick={() => handleCompleteTask(task.id)}
+                      className="cursor-pointer bg-green-600 hover:bg-green-700"
+                    >
+                      <Circle className="mr-1 h-3 w-3" />
+                      Complete
+                    </Button>
+                  )}
                 </div>
               </div>
             ))
