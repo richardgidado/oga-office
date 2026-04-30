@@ -61,7 +61,10 @@ function getPaymentStatusBadge(status: string) {
   }
 }
 
-export function PaymentsTab({ payments, staffMembers }: PaymentsTabProps) {
+export function PaymentsTab({
+  payments,
+  staffMembers,
+}: Readonly<PaymentsTabProps>) {
   const [isAddPaymentOpen, setIsAddPaymentOpen] = useState(false);
   const [isPaySalaryOpen, setIsPaySalaryOpen] = useState(false);
   const [selectedStaff, setSelectedStaff] = useState<number[]>([]);
@@ -81,10 +84,10 @@ export function PaymentsTab({ payments, staffMembers }: PaymentsTabProps) {
     return (
       payment.staffName.toLowerCase().includes(query) ||
       payment.type.toLowerCase().includes(query) ||
-      payment.status.toLowerCase().includes(query) ||
+      payment.status?.toLowerCase().includes(query) ||
       payment.date.toLowerCase().includes(query) ||
       payment.amount.toString().includes(query) ||
-      (payment.note && payment.note.toLowerCase().includes(query))
+      payment.note?.toLowerCase().includes(query)
     );
   });
 
@@ -256,7 +259,7 @@ export function PaymentsTab({ payments, staffMembers }: PaymentsTabProps) {
                         </Label>
                       </div>
                       {selectedStaff.includes(staff.id) && (
-                        <Check className="h-5 w-5 text-green-600"/>
+                        <Check className="h-5 w-5 text-green-600" />
                       )}
                       <div className="text-right">
                         <p className="text-sm font-semibold">
