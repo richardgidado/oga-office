@@ -256,7 +256,7 @@ export function PaymentsTab({ payments, staffMembers }: PaymentsTabProps) {
                         </Label>
                       </div>
                       {selectedStaff.includes(staff.id) && (
-                        <Check className="h-5 w-5 text-green-600" />
+                        <Check className="h-5 w-5 text-green-600"/>
                       )}
                       <div className="text-right">
                         <p className="text-sm font-semibold">
